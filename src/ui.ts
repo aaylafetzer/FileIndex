@@ -18,6 +18,8 @@
 import * as fs from 'fs';
 import shelljs from 'shelljs';
 
+const directorySize = process.env.SHOW_DIRECTORY_SIZE || false;
+
 export function makeBreadcrumb(requestedUrl:string) {
     // Split path into links
     let pathChunks = requestedUrl.split("/");
@@ -49,11 +51,17 @@ export function makeBreadcrumb(requestedUrl:string) {
 export function directoryInfo(directories:string[], requestedPath:string) {
     const filtered = directories.filter(item => fs.statSync(requestedPath + item).isDirectory());
     const output = [];
+
     for (const index of filtered) {
-        output.push({
+        const newContent = {
             "name": index,
             "file": 'directory',
-        });
+            "size": ""
+        }
+        if (directorySize) {
+            newContent.size = shelljs.exec(`du -sh \'${requestedPath + index}\' | awk '{print $1}'`)
+        }
+        output.push(newContent);
     }
     return output;
 }
