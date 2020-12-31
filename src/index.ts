@@ -23,8 +23,6 @@ import * as path from 'path';
 // Winston logger from logging.ts
 import {logger} from "./logging";
 
-import { exit } from "process";
-import { getRulesDirectories } from "tslint/lib/configuration";
 const app = express();
 
 // Get port to listen on from environment variable, defaulting to 8080
