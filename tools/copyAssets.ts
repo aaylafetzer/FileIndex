@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with FileIndex.  If not, see <http://www.gnu.org/licenses/>.
 
-// let renderBrowser = function(path:string) {
+import * as shell from "shelljs";
 
-// }
+// Copy all the view templates
+shell.cp("-R", "src/views", "dist/");

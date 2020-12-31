@@ -35,6 +35,9 @@ const port = process.env.PORT || 8080;
 const directory = process.env.DIRECTORY || "/";
 // Set static directory to directory so we can serve files later
 app.use(express.static(directory));
+// Configure Express to use EJS
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 // Define route handler
 app.get("*", ( req, res ) => {
@@ -47,14 +50,10 @@ app.get("*", ( req, res ) => {
         // Return the file index if directory, else return the file content
         if (!stats.isFile()) {
             // Return directory
-            res.send(
-                fs.readdirSync(directory + req.url)
-            );
-        } else {
-            // Serve the file
-            res.send(
-                fs.readFileSync(directory + req.url)
-            );
+            res.render("browse", {
+                "path": req.url,
+                "items": fs.readdirSync(directory + req.url)
+            });
         }
     } else {
         // Path does not exist
@@ -63,5 +62,7 @@ app.get("*", ( req, res ) => {
     }
 });
 
-logger.info(`Starting server on port ${port}`);
-app.listen(port);
+// Start the server
+app.listen(port, () => {
+    logger.info(`Started server on port ${port}`);
+});
