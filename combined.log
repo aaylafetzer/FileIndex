@@ -1,13 +1,44 @@
-{"message":"server started at http://localhost:8080","level":"info","service":"user-service"}
-{"message":"server started at http://localhost:8080","level":"info","service":"user-service"}
-{"level":"info","service":"user-service"}
-{"level":"info","service":"user-service"}
-{"message":"server started at http://localhost:8080","level":"info","service":"user-service"}
-{"message":"uwuwhatsthis","level":"info","service":"user-service"}
-{"message":"server started at http://localhost:8080","level":"info","service":"user-service"}
-{"level":"info","service":"user-service"}
-{"level":"info","service":"user-service"}
-{"level":"info","service":"user-service"}
-{"message":"/uwu/","level":"info","service":"user-service"}
-{"message":"/uwu/","level":"info","service":"user-service"}
-{"message":"/uwu/whats/this","level":"info","service":"user-service"}
+{"message":"Starting server on port ${port}","level":"info","service":"user-service"}
+{"message":"Starting server on port 8080","level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /uwu/whats/this","level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /favicon.ico","level":"info","service":"user-service"}
+{"message":"Starting server on port 8080","level":"info","service":"user-service"}
+{"message":false,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /","level":"info","service":"user-service"}
+{"message":false,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /etc","level":"info","service":"user-service"}
+{"message":false,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/","level":"info","service":"user-service"}
+{"message":true,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/.zshrc","level":"info","service":"user-service"}
+{"message":"Starting server on port 8080","level":"info","service":"user-service"}
+{"message":false,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/","level":"info","service":"user-service"}
+{"message":false,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/Documents","level":"info","service":"user-service"}
+{"message":false,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/Documents/Games","level":"info","service":"user-service"}
+{"message":false,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/Documents/Games/MultiMC","level":"info","service":"user-service"}
+{"message":"Starting server on port 8080","level":"info","service":"user-service"}
+{"message":false,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/Documents/Games/MultiMC","level":"info","service":"user-service"}
+{"message":true,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/Documents/Games/MultiMC/accounts.json","level":"info","service":"user-service"}
+{"message":false,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/","level":"info","service":"user-service"}
+{"message":false,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/Videos/","level":"info","service":"user-service"}
+{"message":false,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/Videos/","level":"info","service":"user-service"}
+{"message":true,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/Videos/technical.mp4","level":"info","service":"user-service"}
+{"message":"Starting server on port 8080","level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/Videos/","level":"info","service":"user-service"}
+{"message":false,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/Videos/Renders/","level":"info","service":"user-service"}
+{"message":false,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/Videos/Renders/","level":"info","service":"user-service"}
+{"message":false,"level":"info","service":"user-service"}
+{"message":"::ffff:127.0.0.1 is accessing /home/aayla/Videos/Soul%20Eater/","level":"info","service":"user-service"}
+{"message":"Path /[object Object] does not exist!","level":"info","service":"user-service"}
