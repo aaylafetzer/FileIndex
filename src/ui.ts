@@ -64,8 +64,8 @@ export function fileInfo(files:string[], requestedPath:string) {
     for (const index of filtered) {
         output.push({
             "name": index,
-            "file": shelljs.exec(`file ${requestedPath + index} | awk '{for(i=2;i<=NF;i++) printf $i" "; print ""}'`),
-            "size": shelljs.exec(`du -h ${requestedPath + index} | awk '{print $1}'`)
+            "file": shelljs.exec(`file \'${requestedPath + index}\' | awk '{for(i=2;i<=NF;i++) printf $i" "; print ""}'`),
+            "size": shelljs.exec(`du -h \'${requestedPath + index}\' | awk '{print $1}'`)
         });
     }
     return output;
