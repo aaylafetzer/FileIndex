@@ -10,6 +10,6 @@ services:
     environment:
       - PORT=8080
       - DIRECTORY=/data
-      - SHOW_DOTFILES=false
-      - SHOW_DIRECTORY_SIZE=false
+      # - SHOW_DOTFILES=false
+      # - SHOW_DIRECTORY_SIZE=false
     
