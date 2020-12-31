@@ -2,21 +2,77 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><%= path %></title>
+    <title><%= url %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        html {
+            background-color: black;
+            min-height: 100vh;
+        }
+        a {
+            color: white;
+        }
+        a:hover {
+            text-decoration: none;
+            color: white;
+        }
+        p {
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="header"><%= path %></h1>
+        <br>
+        <nav class="breadcrumb is-centered is-large" aria-label="breadcrumbs">
+            <ul>
+                <% path.forEach(function(chunk){ %>
+                    <li><a style="color: white;" href="<%= chunk.link %>"><%= chunk.display %></a></li>
+                <% }) %>
+                <li class="is-active"><a href="#" aria-current="page" style="color: white;"><%= currentDir %></a></li>
+            </ul>
+        </nav>
         <hr>
         <ul>
             <% directories.forEach(function(directory){ %>
-              <li><a href="<%= directory %>/"><%= directory %>/</a></li><hr>
+            <li>
+                <div class="columns">
+                    <div class="column is-three-fifths">
+                        <a href="<%= directory.name %>/"><i class="fas fa-folder"></i> <%= directory.name %>/</a>
+                    </div>
+                    <div class="column is-two-fifths">
+                        <div class="columns">
+                            <div class="column">
+                                <p><%= directory.file %></p>
+                            </div>
+                            <div class="column">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li><hr>
             <% }) %>
             <% files.forEach(function(file){ %>
-                <li><a href="<%= file %>"><%= file %></a></li><hr>
+                <li>
+                    <div class="columns">
+                        <div class="column is-three-fifths">
+                            <a href="<%= file.name %>/"><%= file.name %>/</a>
+                        </div>
+                        <div class="column is-two-fifths">
+                            <div class="columns">
+                                <div class="column">
+                                    <p><%= file.file %></p>
+                                </div>
+                                <div class="column">
+                                    <p><%= file.size %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li><hr>
             <% }) %>
         </ul>
     </div>
