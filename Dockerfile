@@ -23,6 +23,7 @@ WORKDIR /app
 
 ## Copy package.json and package-lock.json before copy other files for better build caching
 COPY ["./package.json", "./package-lock.json", "/app/"]
+RUN npm install
 RUN npm ci --production
 COPY "./" "/app/"
 
