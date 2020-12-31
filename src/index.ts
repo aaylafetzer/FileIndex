@@ -24,6 +24,7 @@ import * as path from 'path';
 import {logger} from "./logging";
 
 import { exit } from "process";
+import { getRulesDirectories } from "tslint/lib/configuration";
 const app = express();
 
 // Get port to listen on from environment variable, defaulting to 8080
@@ -41,23 +42,32 @@ app.set("view engine", "ejs");
 
 // Define route handler
 app.get("*", ( req, res ) => {
+    const requestedPath = directory + req.url;
     logger.info(req.ip + " is accessing " + req.url);
     // Ensure that the requested path exists
-    if (fs.existsSync(directory + req.url)) {
+    if (fs.existsSync(requestedPath)) {
         // Test if given path is a file or a directory
-        const stats = fs.statSync(directory + req.url);
+        const stats = fs.statSync(requestedPath);
         logger.info(stats.isFile());
         // Return the file index if directory, else return the file content
         if (!stats.isFile()) {
-            // Return directory
+            // Get directory contents
+            const pathContents = fs.readdirSync(requestedPath);
+            // Ensure path contents is entirely real files
+            const pathContentsFiltered = pathContents.filter(item => fs.existsSync(requestedPath + item));
+            // Separate directory contents into paths and files
+            const files = pathContentsFiltered.filter(item => fs.statSync(requestedPath + item).isFile());
+            const directories = pathContentsFiltered.filter(item => fs.statSync(requestedPath + item).isDirectory());
+            // Render directory screen
             res.render("browse", {
                 "path": req.url,
-                "items": fs.readdirSync(directory + req.url)
+                "directories": directories,
+                "files": files
             });
         }
     } else {
         // Path does not exist
-        logger.info(`Path ${directory + path} does not exist!`);
+        logger.info(`Path ${requestedPath} does not exist!`);
         res.send("File not found");
     }
 });

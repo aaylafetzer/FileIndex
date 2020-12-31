@@ -12,8 +12,11 @@
         <h1 class="header"><%= path %></h1>
         <hr>
         <ul>
-            <% items.forEach(function(path){ %>
-              <li><%= path %></li>
+            <% directories.forEach(function(directory){ %>
+              <li><a href="<%= directory %>/"><%= directory %>/</a></li><hr>
+            <% }) %>
+            <% files.forEach(function(file){ %>
+                <li><a href="<%= file %>"><%= file %></a></li><hr>
             <% }) %>
         </ul>
     </div>
