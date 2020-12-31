@@ -40,7 +40,7 @@ app.set("view engine", "ejs");
 
 // Define route handler
 app.get("*", ( req, res ) => {
-    const requestedPath = directory + req.url;
+    const requestedPath = decodeURI(directory + req.url);
     logger.info(req.ip + " is accessing " + req.url);
     // Ensure that the requested path exists
     if (fs.existsSync(requestedPath)) {
@@ -58,7 +58,7 @@ app.get("*", ( req, res ) => {
             const directories = pathContentsFiltered.filter(item => fs.statSync(requestedPath + item).isDirectory());
             // Render directory screen
             res.render("browse", {
-                "path": req.url,
+                "path": decodeURI(req.url),
                 "directories": directories,
                 "files": files
             });
